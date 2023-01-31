@@ -73,7 +73,7 @@ ee5546cf-d683-4273-a1ab-f64d454ceee2"></textarea>
     	 * converts a hedgedoc longid to an uuid
     	 * ex: input: rysLLNvgR7qKMyll2DWZhA, output: af2b0b2c-dbe0-47ba-8a33-2965d8359984
     	 */
-    	longid_bin = atob(longid.replaceAll('_','/'))
+    	longid_bin = atob(longid.replaceAll('_','/').replaceAll('-','+'))
     	hexValues = []
     	for (let i = 0; i < longid_bin.length; i+=1){
     		hexValues.push(parseInt(longid_bin.charCodeAt(i)).toString(16))
