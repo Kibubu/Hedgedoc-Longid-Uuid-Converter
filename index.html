@@ -76,8 +76,14 @@ ee5546cf-d683-4273-a1ab-f64d454ceee2"></textarea>
     	longid_bin = atob(longid.replaceAll('_','/').replaceAll('-','+'))
     	hexValues = []
     	for (let i = 0; i < longid_bin.length; i+=1){
-    		hexValues.push(parseInt(longid_bin.charCodeAt(i)).toString(16))
-    	}
+    		value = parseInt(longid_bin.charCodeAt(i)).toString(16)
+    		// Hex values below 0xf only have one digit and are not proccessed correctly
+    		// pad with 0 infront
+    		if (value.length == 1){
+    			value = '0' + value
+    		}
+    		hexValues.push(value)
+	}
     	uuid = hexValues.join('')
     	// https://github.com/hedgedoc/hedgedoc/blob/d26dcd04a147a52047efbe66a0fc99d08049265e/lib/models/note.js#L172:L183
     	// add dashes between the UUID string parts
