@@ -65,7 +65,7 @@ ee5546cf-d683-4273-a1ab-f64d454ceee2"></textarea>
 	  	 	}
 	  	  ret.push(String.fromCharCode(parseInt(part,16)))
 	  	}
-	  	return btoa(ret.join('')).toString().replaceAll('=','').replaceAll('/','_')
+	  	return btoa(ret.join('')).toString().replaceAll('=','').replaceAll('/','_').replaceAll('+','-'))
     }
 
     function decode(longid){
